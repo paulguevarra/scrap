@@ -6,27 +6,18 @@
         <p>{{teams.description}}</p>
         <p>Team ID# {{teams.id}}</p>
         <h5>Team Roster Members:</h5>
-        <ol>
-            {{#each members}}
-                <li><a href="/teams/{{teams.id}}/members/{{memberid}}">{{name}}</a>
-                </li>
-            {{/each}}
-        </ol>
 
-        <!--<div class="well">-->
-            <!--<h1>Add a new member to the roster!</h1>-->
+            {{#if members}}
+                {{#each members}}
+                        <li>{{membername}}&nbsp;&nbsp;<p class ="btn btn-warning btn-xs"><a href="/teams/{{this.teamid}}/members/{{this.memberid}}/edit">Edit member</a></p>&nbsp;<p class ="btn btn-danger btn-xs"><a href="/teams/{{this.teamid}}/members/{{this.memberid}}/delete">Delete member</a></p>
+                        </li>
+                {{/each}}
+            {{/if}}
 
-            <!--<form action="/teams/{{teams.id}}/addMember" method="post">-->
-                <!--<div class="form-control">-->
-                    <!--<label for="name">Member Name: </label>-->
-                    <!--<input id="name" name="name" type="text" class="inputs" required>-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-info">Update Roster</button>-->
-            <!--</form>-->
-        <!--</div>-->
         <br>
         <p class="btn btn-success"><a href="/teams/{{teams.id}}/update">Modify Team Info</a></p> &nbsp;
-        <p class="btn btn-info"><a href="/teams/{{teams.id}}/addMember">Modify Team Roster</a></p> &nbsp;
+        <p class="btn btn-info"><a href="/members/new">Add Member</a></p> &nbsp;
+        <p class="btn btn-danger"><a href="/teams/{{teams.teamid}}/Delete Team">Delete Team</a></p> &nbsp;
         <p class="btn btn-warning"><a href="/">Return to Home Page</a></p>
     </div>
 {{/partial}}

@@ -32,19 +32,27 @@ public class Sql2oMembersDaoTest {
         return new Members("Ducky",1);
     }
     public Members setUpNewMember2(){
-        return new Members("Oreo",2);
+        return new Members("Oreo",1);
     }
 
 
     @Test
     public void addingMemberSetsId() throws Exception {
         Members members = setUpNewMember();
-        int originalMemberId = members.getMemberId();
         memberDao.addMember(members);
-        assertNotEquals(originalMemberId,members.getMemberId());
+        assertEquals(1,members.getMemberId());
     }
 
     @Test
+    public void getAllMembersByTeam() throws Exception {
+        Members testing = setUpNewMember();
+        memberDao.addMember(testing);
+        Members testing2 = setUpNewMember2();
+        memberDao.addMember(testing2);
+        assertEquals(2, memberDao.getAllMembersByTeam(1).size());
+
+    }
+        @Test
     public void existingMembersCanBeFoundById() throws Exception {
         Members members = setUpNewMember();
         memberDao.addMember(members);

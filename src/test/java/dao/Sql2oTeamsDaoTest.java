@@ -68,5 +68,16 @@ public class Sql2oTeamsDaoTest {
         teamDao.addTeam(anotherTeam);
         assertEquals(anotherTeam, teamDao.locateById(anotherTeam.getId()));
     }
+    @Test
+    public void removeTeam() throws Exception {
+        Teams test = setupTeam();
+        teamDao.addTeam(test);
+
+        Teams test2 = setupTeam2();
+        teamDao.addTeam(test2);
+        teamDao.deleteTeam(test2.getId());
+        assertEquals(1, teamDao.getAllTeams().size());
+    }
+
 
 }

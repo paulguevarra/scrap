@@ -37,7 +37,15 @@ public class Sql2oMembersDao implements MemberDao{
                     .executeAndFetch(Members.class);
         }
     }
-
+    public List<Members> getAllMembersByTeam(int teamId) {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                    .addParameter("teamId", teamId)
+                    .addColumnMapping("TEAMID", "teamId")
+                    .addColumnMapping("NAME", "memberName")
+                    .executeAndFetch(Members.class);
+        }
+    }
     @Override
     public Members locateMemberById(int memberid) {
         try (Connection con = sql2o.open()) {

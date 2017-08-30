@@ -1,16 +1,48 @@
+
 {{#partial "content"}}
     <div class="well">
-        {{#if modifyTeamRoster}}
-            <h1>Add a new member to the roster!</h1>
-            <form action="/teams/{{modifyTeamRoster.id}}/addMember" method="post">
+        {{#if editMember}}
+            <h1>Edit this Team!</h1>
+        <form action="/teams/{{editmember.id}}/members/{{editmember.memberid}}/edit" method="post">
+            <div class="form-control">
+                <label for="membername">Enter name:&nbsp;</label>
+                <input id="membername" name="memberame" type="text" placeholder={{editTeam.membername}}>
+                <button type="submit" class="btn btn-warning">ENTER</button>
+            </div>
+        </form>
+
+        {{else}}
+
+            <h1>Enter new member here!</h1>
+
+            <form action="/members/new" method="post">
                 <div class="form-control">
-                    <label for="name">Member Name:&nbsp; </label>
-                    <input id="name" name="name" type="text" class="inputs">
+                    <label for="teamName">Team Name:&nbsp;</label>
+                    <select id="teamName" name="teamName" type="text">
+                        {{#each teams}}
+                            <option value="{{this.id}}">{{this.teamname}} </option>
+                        {{/each}}
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-success">Update Roster</button>
+                <br>
+                <div class="form-control">
+                    <label for="membername">Team Description:&nbsp;</label>
+                    <input id="membername" name="membername" type="text">
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success">Submit Entry</button>
+
             </form>
         {{/if}}
     </div>
 {{/partial}}
 
 {{> layout.hbs}}
+
+
+
+
+
+
+

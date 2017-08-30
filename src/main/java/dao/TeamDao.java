@@ -7,16 +7,16 @@ import java.util.List;
 
 public interface TeamDao {
     //create
-    void addTeam (Teams teams);
+    void addteam (Teams teams);
 
     //read
-    List<Teams> getAllTeams();
-    List<Members>getAllMembersByTeamId(int teamid);
-    Teams locateById(int teamid);
+    List<Teams> getAllteams();
+    List<Members>getAllmembersbyteamid(int teamid);
+    Teams locatebyid(int teamid);
     //update
-    void update(String teamName, String Description, int teamid);
+    void update(String teamname, String description, int teamid);
     //delete
-    void deleteTeam(int teamid);
-    void deleteAllTeams();
+    void deleteteam(int teamid);
+    void deleteallteams();
 
 }

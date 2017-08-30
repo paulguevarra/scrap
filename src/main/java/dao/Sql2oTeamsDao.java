@@ -94,4 +94,5 @@ public class Sql2oTeamsDao implements TeamDao {
             System.out.println(ex);
         }
     }
+
 }

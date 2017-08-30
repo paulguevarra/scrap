@@ -14,20 +14,20 @@ public class Members {
         this.membername = membername;
         this.teamid = teamid;
     }
-    public void setMemberId(int memberid) {
+    public void setMemberid(int memberid) {
         this.memberid = memberid;
     }
-    public void setMemberName(String membername){ this.membername=membername;}
-    public void setTeamId(int teamid){ this.teamid=teamid;}
+    public void setMembername(String membername){ this.membername=membername;}
+    public void setTeamid(int teamid){ this.teamid=teamid;}
 
-    public String getMemberName() {
+    public String getMembername() {
         return membername;
     }
-    public int getTeamId() {
+    public int getTeamid() {
         return teamid;
     }
 
-    public int getMemberId() {
+    public int getMemberid() {
         return memberid;
     }
 
